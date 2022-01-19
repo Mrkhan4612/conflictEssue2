@@ -18,6 +18,7 @@ import in.mrKhan.service.IService;
 public class IMyCotroller {
 	@Autowired
 	IService Service;
+
 	//creating a get mapping that retrieves all the books detail from the database 
 	@GetMapping("/student")
 	private List<Student> getAllStudents() 
@@ -37,4 +38,18 @@ public class IMyCotroller {
 		Service.delete(studentid);
 	}
 
+	//creating post mapping that post the book detail in the database
+	@PostMapping("/students")
+	private int saveBook(@RequestBody Student student) 
+	{
+		Service.saveOrUpdate(student);
+	return student.getStudentId();
+	}
+	//creating put mapping that updates the book detail 
+	@PutMapping("/students")
+	private Student update(@RequestBody Student student) 
+	{
+		Service.saveOrUpdate(student);
+	return student;
+	}
 }

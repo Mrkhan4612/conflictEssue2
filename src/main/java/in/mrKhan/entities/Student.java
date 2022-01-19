@@ -3,6 +3,7 @@ import javax.persistence.Id;
 
 package in.mrKhan.entities;
 
+
 @Data
 @Entity
 public class Student {
