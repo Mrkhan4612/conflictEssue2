@@ -19,6 +19,25 @@ public class IMyCotroller {
 	@Autowired
 	IService Service;
 
+	//creating a get mapping that retrieves all the books detail from the database 
+	@GetMapping("/student")
+	private List<Student> getAllStudents() 
+	{
+	return Service.getAllStudents();
+	}
+	//creating a get mapping that retrieves the detail of a specific book
+	@GetMapping("/student/{studentid}")
+	private Student getBooks(@PathVariable("studentid") int studentid) 
+	{
+	return Service.getStudentsById(studentid);
+	}
+	//creating a delete mapping that deletes a specified book
+	@DeleteMapping("/student/{studentid}")
+	private void deleteBook(@PathVariable("studentid") int studentid) 
+	{
+		Service.delete(studentid);
+	}
+
 	//creating post mapping that post the book detail in the database
 	@PostMapping("/students")
 	private int saveBook(@RequestBody Student student) 

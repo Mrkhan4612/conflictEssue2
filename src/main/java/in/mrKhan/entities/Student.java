@@ -1,15 +1,13 @@
-package in.mrKhan.entities;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import lombok.Data;
+package in.mrKhan.entities;
 
 
 @Data
 @Entity
 public class Student {
-	@Id
+@Id
 	private int studentId;
 	
 	private String name;
